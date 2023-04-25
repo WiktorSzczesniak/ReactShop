@@ -1,0 +1,25 @@
+.Body {
+  padding-top: 10rem;
+  left: 5%;
+  right: 5%;
+
+
+   position: fixed;
+}
+
+.list {
+  list-style-type: none;
+  overflow: auto;
+  white-space: nowrap;
+  /* overflow: hidden; */
+}
+
+.product {
+  display: inline-block;
+  padding: 10px;
+  /* background-color: rgb(81, 139, 139); */
+}
+.product img {
+  width: 360px;
+  height: 400px;
+}
