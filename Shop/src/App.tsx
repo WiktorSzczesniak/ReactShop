@@ -1,8 +1,10 @@
 import "./App.css";
-import Body from "./components/Body";
+import Body from "./components/Products";
 import Header from "./components/Header/header";
 import CSSTransition from "react-transition-group/CSSTransition";
 import { useState } from "react";
+import Main from "./components/Main";
+import Products from "./components/Products";
 function App() {
   const [visible, setVisible] = useState(true);
 
@@ -22,7 +24,9 @@ function App() {
       >
         <Header />
       </CSSTransition>
-      <Body />
+      <Main />
+      <Main />
+      <Main />
     </div>
   );
 }

@@ -1,14 +1,14 @@
-import "./Body.css";
+import "./Products.css";
 import Product from "./Product";
 import { useRef } from "react";
-import { CSSTransition } from "react-transition-group";
-function Body() {
+import Promotions from "./Promotions";
+function Products() {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleScrollRight = () => {
     if (ref.current) {
       ref.current.scrollBy({
-        left: 650,
+        left: 370,
         behavior: "smooth",
       });
     }
@@ -16,13 +16,13 @@ function Body() {
   const handleScrollLeft = () => {
     if (ref.current) {
       ref.current.scrollBy({
-        left: -650,
+        left: -370,
         behavior: "smooth",
       });
     }
   };
   return (
-    <div className="Body">
+    
       <div className="products">
         <ul className="list" ref={ref}>
           <Product />
@@ -44,8 +44,9 @@ function Body() {
           <p>〈</p>
         </div>
       </div>
-    </div>
+  
+  
   );
 }
 
-export default Body;
+export default Products;
