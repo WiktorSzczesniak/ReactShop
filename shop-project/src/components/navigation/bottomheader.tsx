@@ -1,5 +1,6 @@
 import DetailsBottomheader from "./DetailsBottomheader";
 import { useState } from "react";
+import Link from "next/link";
 function Bottomheader() {
   const [isShown, setIsShown] = useState(false);
 
@@ -10,14 +11,14 @@ function Bottomheader() {
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
         >
-          <a href="https://www.youtube.com/">Clothing</a>
+          <Link href="/Clothing">Clothing</Link>
           {isShown && <DetailsBottomheader />}
         </li>
         <li>
-          <a href="https://www.youtube.com/">Jewelery</a>
+          <Link href="/Jewelery">Jewelery</Link>
         </li>
         <li>
-          <a href="https://www.youtube.com/">Electronics</a>
+          <Link href="/Electronics">Electronics</Link>
         </li>
       </ul>
     </div>
