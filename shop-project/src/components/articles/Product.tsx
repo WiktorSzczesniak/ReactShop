@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Tshirt from "./test/black-tshirt.png"
-function Product() {
+function Product(props) {
   return (
     <li className="product">
       <Image src={Tshirt} />
       <div className="description">
-        <div className="title">koszulka do dupy</div>
-        <div className="price">10zl</div>
+        <div className="title">{props.title}</div>
+        <div className="price">{props.price}</div>
       </div>
     </li>
   );

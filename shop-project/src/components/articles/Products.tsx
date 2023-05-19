@@ -2,7 +2,7 @@
 import Product from "./Product";
 import { useRef } from "react";
 
-function Products() {
+function Products(props) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleScrollRight = () => {
@@ -24,16 +24,15 @@ function Products() {
   return (
     <div className="products">
       <ul className="list" ref={ref}>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {props.Items.map((item) => (
+          <Product 
+          key={item.id}
+          title={item.title}
+          price={item.price}
+          category={item.category}
+          image={item.image} />
+
+        ))}
       </ul>
 
       <div className="scroll-button-right" onClick={handleScrollRight}>
