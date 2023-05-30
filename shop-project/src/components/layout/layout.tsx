@@ -2,32 +2,20 @@ import CSSTransition from "react-transition-group/CSSTransition";
 import Header from "../navigation/header";
 import { useState, useEffect } from "react";
 function Layout(props) {
-    const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  const [visible, setVisible] = useState(true);
 
-    function Scroll() {
-      useEffect(function mount() {
-        function onScroll() {
-          const currentScrollPos = window.pageYOffset;
-          setVisible(currentScrollPos < 150);
-        }
-
-        window.addEventListener("scroll", onScroll);
-
-        return function unMount() {
-          window.removeEventListener("scroll", onScroll);
-        };
-      });
-
-      return null;
-    }
-//   const [visible, setVisible] = useState(true);
-
-//   const handleScroll = () => {
-//     const currentScrollPos = window.pageYOffset;
-//     setVisible(currentScrollPos < 150);
-//   };
-
-//   window.addEventListener("scroll", handleScroll);
+ 
+  function Scroll() {
+const currentScrollPos = window.pageYOffset;
+const makeVisible = currentScrollPos < 150 || currentScrollPos < prevScrollPos;
+   setPrevScrollPos(currentScrollPos);
+   setVisible(makeVisible);
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", Scroll);
+    return () => window.removeEventListener("scroll", Scroll);
+  }, [prevScrollPos]);
   return (
     <div>
       <CSSTransition
@@ -38,7 +26,6 @@ function Layout(props) {
       >
         <Header />
       </CSSTransition>
-      <Scroll />
       <main className="main">{props.children}</main>
     </div>
   );
