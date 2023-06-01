@@ -11,7 +11,7 @@ function Bottomheader() {
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
         >
-          <Link href={`products/category/Clothing`}>Clothing</Link>
+          <Link href={`/category/Clothing`}>Clothing</Link>
           {isShown && <DetailsBottomheader />}
         </li>
         <li>

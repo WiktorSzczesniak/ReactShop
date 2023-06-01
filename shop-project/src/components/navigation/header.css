@@ -21,8 +21,9 @@
   font-size: 2rem;
   color: antiquewhite;
   font-weight: bold;
-}
 
+}
+.logo a:visited { color: antiquewhite; }
 .interface {
   position: absolute;
   float: right;

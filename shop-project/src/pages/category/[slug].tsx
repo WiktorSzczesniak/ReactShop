@@ -1,8 +1,10 @@
 import Products from "@/components/articles/Products";
 export default function CategoryPage(props) {
-  return <div>
-    <Products Items={props.products} />
-  </div>;
+  return (
+    <div className="content">
+      <Products Items={props.products} />
+    </div>
+  );
 }
 
 export async function getStaticPaths() {
@@ -12,7 +14,6 @@ export async function getStaticPaths() {
   const paths = categories.map((category) => ({
     params: { slug: category },
   }));
-  console.log(paths);
   return {
     paths,
     fallback: false,
@@ -25,7 +26,6 @@ export async function getStaticProps({ params }) {
     `https://fakestoreapi.com/products/category/${slug}`
   );
   const products = await response.json();
-  console.log(products);
   return {
     props: {
       products: products.map((item) => ({

@@ -1,4 +1,3 @@
-
 import Product from "./Product";
 import { useRef } from "react";
 
@@ -25,13 +24,14 @@ function Products(props) {
     <div className="products">
       <ul className="list" ref={ref}>
         {props.Items.map((item) => (
-          <Product 
-          key={item.id}
-          title={item.title}
-          price={item.price}
-          category={item.category}
-          image={item.image} />
-
+          <Product
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            category={item.category}
+            image={item.image}
+          />
         ))}
       </ul>
 
