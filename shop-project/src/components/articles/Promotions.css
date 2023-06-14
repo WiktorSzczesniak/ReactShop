@@ -6,8 +6,12 @@ padding-top: 8rem;
 }
 .Promotion img {
     width: 100%;
-   
+}
+
+@media screen and (max-width: 700px) {
+    .Promotion {
 
 
-
+padding-top: 4rem;
+}
 }

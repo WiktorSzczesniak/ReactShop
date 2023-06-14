@@ -1,7 +1,7 @@
 .mainHeader {
   display: grid;
   width: 100%;
- position: fixed;
+  position: fixed;
 }
 .mainheader.hidden {
   transform: translateY(-100%);
@@ -13,17 +13,16 @@
   align-items: center;
   justify-content: center;
   background-color: #000000;
-
-  
 }
 
 .logo {
   font-size: 2rem;
   color: antiquewhite;
   font-weight: bold;
-
 }
-.logo a:visited { color: antiquewhite; }
+.logo a:visited {
+  color: antiquewhite;
+}
 .interface {
   position: absolute;
   float: right;
@@ -32,12 +31,32 @@
   display: flex;
 }
 .interface a {
-    font-size: 24px;
-    padding: 15%;
-    color: antiquewhite;
-    
+  font-size: 24px;
+  padding: 15%;
+  color: antiquewhite;
 }
-a:link { text-decoration: none; }
+.profile-cart-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  transition: all 0.5s;
+}
+.profile-cart-img:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  transition: 0.5s ease-in-out;
+}
+
+.profile-cart-img:active {
+  /* background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65); */
+  transform: translateY(0);
+}
+a:link {
+  text-decoration: none;
+}
 
 .interface a:hover,
 .interface a:active,
@@ -50,8 +69,7 @@ a:link { text-decoration: none; }
   width: 100%;
   height: 3rem;
   background-color: #242424;
-justify-content: center;
-
+  justify-content: center;
 }
 .bottomheader a:hover,
 .bottomheader a:active,
@@ -60,21 +78,79 @@ justify-content: center;
 }
 
 .bottomheader ul {
-align-items: center;
+  align-items: center;
   color: rgb(232, 230, 227);
   display: flex;
 
   justify-content: center;
- 
-  padding-left: 0px;
 
-  
+  padding-left: 0px;
 }
-.bottomheader li  {
+.bottomheader li {
   display: inline;
   padding: 10%;
 }
 .bottomheader li a {
   font-size: 22px;
+  color: antiquewhite;
+}
+
+@media screen and (max-width: 700px) {
+  .upperheader {
+    width: 100%;
+    height: 4rem;
+
+    justify-content: flex-start;
+    background-color: #000000;
+  }
+  .bottomheader {
+    display: none;
+  }
+  .logo {
+    margin-left: 10px;
+  }
+  .interface {
+    display: block;
+  }
+  .hidden {
+    display: none;
+  }
+  .toggle {
+    position: absolute;
+    float: right;
+    justify-self: flex-end;
+    justify-content: flex-end;
+    display: flex;
+  }
+  .toggle-menu {
+    margin-right: 20px;
+  }
+  .toggled-menu {
+    width: 100%;
+    top: 4rem;
+    background-color: #242424;
+    position: fixed;
+  }
+  .toggled-menu ul {
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    color: rgb(232, 230, 227);
+    padding-left: 0px;
+  }
+  .toggled-menu li {
+    font-size: 25px;
+    padding: 0;
+  }
+  .toggled-menu li :hover,
+  .toggled-menu li :active,
+  .toggled-menu li .active {
+    color: white;
+  }
+  .toggled-menu li a {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
     color: antiquewhite;
+  }
 }

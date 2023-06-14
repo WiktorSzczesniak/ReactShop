@@ -5,6 +5,7 @@ import "./globals.css"
 import "../components/articles/Products.css"
 import "../components/layout/layout.css"
 import "../components/articles/Promotions.css"
+import "../components/articles/productDetails.css";
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
