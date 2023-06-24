@@ -31,5 +31,20 @@
   .content {
     padding-top: 9rem;
 }
+  .content-login {
+    padding-top: 5rem;
+}
+
+@media screen and (max-width: 700px) {
+
+  .content {
+    padding-top: 4rem;
+}
+  .content-login {
+    padding-top: 1rem;
+}
+
+
+}
 
 

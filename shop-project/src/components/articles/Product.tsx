@@ -3,8 +3,8 @@ import Link from "next/link";
 import Tshirt from "./test/black-tshirt.png";
 function Product(props) {
   let Title = props.title;
-  if (Title.length > 40) {
-    Title = Title.slice(0, 40) + "...";
+  if (Title.length > 25) {
+    Title = Title.slice(0, 25) + "...";
   }
 
   return (
@@ -14,8 +14,8 @@ function Product(props) {
         <div className="description">
           <div className="title" title={props.title}>
             {Title}
+            <p className="price">{props.price}$</p>
           </div>
-          <div className="price">{props.price}$</div>
         </div>
       </Link>
     </li>
