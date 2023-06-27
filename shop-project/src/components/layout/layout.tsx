@@ -1,10 +1,15 @@
 import CSSTransition from "react-transition-group/CSSTransition";
 import Header from "../navigation/header";
 import { useState, useEffect } from "react";
+import CartModalOverlay from "../cart/cartmodal";
 function Layout(props) {
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [visible, setVisible] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
  
   function Scroll() {
 const currentScrollPos = window.pageYOffset;
@@ -24,9 +29,10 @@ const makeVisible = currentScrollPos < 150 || currentScrollPos < prevScrollPos;
         classNames="header-transition"
         unmountOnExit
       >
-        <Header />
+        <Header hidemodal={toggleModal} />
       </CSSTransition>
       <main className="main">{props.children}</main>
+      {isOpen && <CartModalOverlay hidemodal={toggleModal}/>}
     </div>
   );
 }

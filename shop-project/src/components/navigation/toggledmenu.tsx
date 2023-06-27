@@ -2,7 +2,6 @@ import Link from "next/link";
 function Togglemenu(props) {
     const menulinks = [
       { title: "Profile", link: "/login" },
-      { title: "Cart", link: "https://www.youtube.com/" },
       { title: "Electronics", link: "/category/electronics" },
       { title: "Jewelery", link: "/category/jewelery" },
       { title: "Clothing", link: "/category/Clothing" },
@@ -12,14 +11,15 @@ function Togglemenu(props) {
    
   return (
     <div className="toggled-menu">
-      <ul>
+      <ul onClick={props.OnClick}>
         {menulinks.map((links) => (
-          <div className="link-bar" onClick={props.OnClick}>
+          <div className="link-bar" >
             <li>
               <Link href={links.link}>• {links.title}</Link>
             </li>
           </div>
         ))}
+        <p className="cartmedia" onClick={props.hideModal}> • Cart</p>
       </ul>
     </div>
   );

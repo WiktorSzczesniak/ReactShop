@@ -3,10 +3,10 @@ import React from "react";
 import Upperheader from "./upperheader";
 import Bottomheader from "./bottomheader";
 import { useState, useEffect } from "react";
-function Header() {
+function Header(props) {
   return (
     <div className="mainHeader">
-      <Upperheader />
+      <Upperheader hideModal={props.hidemodal}/>
       <Bottomheader />
     </div>
   );

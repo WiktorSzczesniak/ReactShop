@@ -7,6 +7,7 @@ import "../components/layout/layout.css"
 import "../components/articles/Promotions.css"
 import "../components/articles/productDetails.css";
 import "../components/profile/login.css";
+import "../components/cart/cartmodal.css"
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>

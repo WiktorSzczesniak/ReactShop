@@ -1,5 +1,5 @@
 import Link from "next/link";
-import cart from "../../../public/cart.png";
+
 import menu from "../../../public/togglemenu.png";
 import profile from "../../../public/profile.png";
 import Image from "next/image";
@@ -7,8 +7,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Togglemenu from "./toggledmenu";
 import { CSSTransition } from "react-transition-group";
+import CartModalOverlay from "../cart/cartmodal";
+import cart from "../../../public/cart.png";
 
-function Upperheader() {
+function Upperheader(props) {
   const [isMobile, setIsMobile] = useState(false);
   const [isShown, setIsShown] = useState(false);
 function onClick() {
@@ -35,12 +37,15 @@ function onClick() {
         <Link href="/">ReactShop</Link>
       </div>
       <div className={(isMobile ? "hidden" : "") + " interface"}>
-        <Link href="/login" >
+        <Link href="/login">
           <Image src={profile} className="profile-cart-img" />
         </Link>
-        <Link href="/login" >
-          <Image src={cart} className="profile-cart-img" />
-        </Link>
+
+        <Image
+          src={cart}
+          className="profile-cart-img cart-header"
+          onClick={props.hideModal}
+        />
       </div>
       <div className="toggle">
         {isMobile && (
@@ -53,7 +58,7 @@ function onClick() {
         classNames="menu-transition"
         unmountOnExit
       >
-        <Togglemenu OnClick={onClick} />
+        <Togglemenu OnClick={onClick} hideModal={props.hideModal}/>
       </CSSTransition>
     </div>
   );

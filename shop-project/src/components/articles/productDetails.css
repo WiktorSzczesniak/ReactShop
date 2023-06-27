@@ -73,3 +73,52 @@ height: 50px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
 }
+
+@media screen and (max-width: 700px) {
+.productDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.imagebox {
+  width: 90%;
+
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+}
+
+.details-title {
+  margin-top: -100px;
+  font-weight: bold;
+  font-size: large;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.details-price {
+  font-size: large;
+    margin-left: 5%;
+  margin-right: 5%;
+}
+.details-description {
+      margin-left: 5%;
+  margin-right: 5%;
+}
+
+.details-image {
+  width: 100%;
+  
+}
+
+
+
+
+
+
+
+}
