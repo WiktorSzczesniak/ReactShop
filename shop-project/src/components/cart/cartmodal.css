@@ -12,7 +12,7 @@
 
 .modal-content-wrapper {
   background-color: rgb(61, 61, 61);
-   padding: 10px;
+  padding: 10px;
   border-radius: 4px;
   width: 800px;
   max-height: 600px;
@@ -21,21 +21,17 @@
 .modal-content {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-border-bottom-style: groove;
-margin-top: 10px;
-
+  border-bottom-style: groove;
+  margin-top: 10px;
 }
 .modal-image-div {
-  
 }
 .modal-image {
-    width: 120px;
-    height: 120px;
+  width: 120px;
+  height: 120px;
 }
 .modal-description {
-margin-left: 5px;
-
-
+  margin-left: 5px;
 }
 
 .modal-title {
@@ -43,35 +39,35 @@ margin-left: 5px;
 }
 
 .modal-price {
-margin-top: -20px;
-font-size: large;
+  margin-top: -20px;
+  font-size: large;
 }
 .modal-text {
-
 }
 .modal-button {
- justify-content:flex-end;
- 
- display: flex;
+  justify-content: flex-end;
 }
 .modal-button button {
   margin-top: 10px;
+  margin-right: 10px;
   width: 200px;
   height: 40px;
-   float: right;
-
+  float: right;
 }
-
+.totalcartprice {
+  justify-content: flex-start;
+  float: left;
+  font-size: large;
+}
 
 .modal-count-buttons-wrapper {
-font-size: large;
-
+  font-size: large;
 }
 .modal-count-buttons {
-float: right;
+  float: right;
 }
 .modal-count-buttons-wrapper button {
-    font: inherit;
+  font: inherit;
   font-weight: bold;
   font-size: medium;
   color: #ffffff;
@@ -85,48 +81,63 @@ float: right;
   margin: 0.25rem;
 }
 .modal-count {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 700px) {
   .modal-button {
- justify-content:center;
- display: flex;
-}
+    justify-content: center;
+    display: flex;
+  }
   .modal-button button {
-  margin-top: 5px;
-  width: 350px;
-  height: 40px;
- 
-
-}
-.modal-image {
+    margin-top: 5px;
+    width: 350px;
+    height: 40px;
+  }
+  .modal-image {
     width: 90px;
     height: 90px;
-}
-.modal-content-wrapper {
-  background-color: rgb(61, 61, 61);
-   padding: 5px;
-  border-radius: 4px;
-
-  width: 100%
-  
-}
-.modal-description {
-
-margin-left: 5px;
-font-size: 8px;
-
-}
-.modal-content {
-margin-top: 0px;
-
-}
-.modal-count {
-display: flex;
-justify-content: center;
-font-size: medium;
-}
-
+  }
+  .modal-content-wrapper {
+    background-color: rgb(61, 61, 61);
+    padding: 5px;
+    border-radius: 4px;
+    width: 100%;
+  }
+  .modal-description {
+    margin-left: 5px;
+    font-size: 10px;
+  }
+  .modal-price {
+    margin-top: -20px;
+    font-size: medium;
+  }
+  .modal-content {
+    margin-top: 0px;
+  }
+  .modal-count {
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+  }
+  .modal-button {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-button button {
+    margin-top: 10px;
+    margin-right: 0px;
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    justify-content: center;
+    float: none;
+  }
+  .totalcartprice {
+    width: 100%;
+    font-size: 20px;
+  }
 }

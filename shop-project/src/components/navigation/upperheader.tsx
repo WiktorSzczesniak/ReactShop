@@ -9,14 +9,15 @@ import Togglemenu from "./toggledmenu";
 import { CSSTransition } from "react-transition-group";
 import CartModalOverlay from "../cart/cartmodal";
 import cart from "../../../public/cart.png";
+import { useSelector } from "react-redux";
 
 function Upperheader(props) {
+  const totalQuentity = useSelector((state) => state.cart.totalQuantity);
   const [isMobile, setIsMobile] = useState(false);
   const [isShown, setIsShown] = useState(false);
-function onClick() {
-      setIsShown(!isShown)
-      ;
-}
+  function onClick() {
+    setIsShown(!isShown);
+  }
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 700);
@@ -40,12 +41,16 @@ function onClick() {
         <Link href="/login">
           <Image src={profile} className="profile-cart-img" />
         </Link>
-
-        <Image
-          src={cart}
-          className="profile-cart-img cart-header"
-          onClick={props.hideModal}
-        />
+        <div className="cart">
+          <Image
+            src={cart}
+            className="profile-cart-img cart-header"
+            onClick={props.hideModal}
+          />
+          {totalQuentity>0 && <div className="totalQuantity">
+            <p className="totalCartQuantity">{totalQuentity}</p>
+          </div>}
+        </div>
       </div>
       <div className="toggle">
         {isMobile && (
@@ -58,7 +63,7 @@ function onClick() {
         classNames="menu-transition"
         unmountOnExit
       >
-        <Togglemenu OnClick={onClick} hideModal={props.hideModal}/>
+        <Togglemenu OnClick={onClick} hideModal={props.hideModal} />
       </CSSTransition>
     </div>
   );

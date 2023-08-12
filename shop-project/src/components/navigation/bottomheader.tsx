@@ -1,18 +1,23 @@
 import DetailsBottomheader from "./DetailsBottomheader";
 import { useState } from "react";
 import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import headerSlice, {headerActions} from "@/store/header-slice";
 function Bottomheader() {
-  const [isShown, setIsShown] = useState(false);
+  const dispatch = useDispatch();
+  const showdetails = useSelector((state) => state.header.detailsbottomIsShown);
+
 
   return (
     <div className="bottomheader">
       <ul>
         <li
-          onMouseEnter={() => setIsShown(true)}
-          onMouseLeave={() => setIsShown(false)}
+          onMouseEnter={() => dispatch(headerActions.visible())}
+          onMouseLeave={() => dispatch(headerActions.hide())}
+
         >
           <Link href={`/category/Clothing`}>Clothing</Link>
-          {isShown && <DetailsBottomheader />}
+          {showdetails && <DetailsBottomheader />}
         </li>
         <li>
           <Link href={`/category/jewelery`}>Jewelery</Link>

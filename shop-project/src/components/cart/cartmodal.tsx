@@ -1,105 +1,33 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-import Image from "next/image";
-import tshirt from "../../../public/koszulka-bezowy.jpg"
+import CartItem from "./cartitem";
 const CartModalOverlay = (props) => {
-
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartPrice = useSelector((state) => state.cart.cartPrice);
 
   return (
     <div>
       <div className="modal-overlay">
         <ul className="modal-content-wrapper">
-          <li className="modal-content">
-            <div className="modal-image-div">
-              <Image src={tshirt} className="modal-image" />
-            </div>
-            <div className="modal-description">
-              <h2 className="modal-title">
-                koszulka koszulka koszulka koszulka koszulka
-              </h2>
-              <p className="modal-price">100$</p>
-            </div>
-            <div className="modal-count-buttons-wrapper">
-              <div className="modal-count-buttons">
-                <button className="modal-button-less">-</button>
-                <div className="modal-count">0</div>
-                <button className="modal-button-more">+</button>
-              </div>
-            </div>
-          </li>
-          <li className="modal-content">
-            <div className="modal-image-div">
-              <Image src={tshirt} className="modal-image" />
-            </div>
-            <div className="modal-description">
-              <h2 className="modal-title">
-                koszulka koszulka koszulka koszulka koszulka
-              </h2>
-              <p className="modal-price">100$</p>
-            </div>
-            <div className="modal-count-buttons-wrapper">
-              <div className="modal-count-buttons">
-                <button className="modal-button-less">-</button>
-                <div className="modal-count">0</div>
-                <button className="modal-button-more">+</button>
-              </div>
-            </div>
-          </li>
-          <li className="modal-content">
-            <div className="modal-image-div">
-              <Image src={tshirt} className="modal-image" />
-            </div>
-            <div className="modal-description">
-              <h2 className="modal-title">
-                koszulka koszulka koszulka koszulka koszulka
-              </h2>
-              <p className="modal-price">100$</p>
-            </div>
-            <div className="modal-count-buttons-wrapper">
-              <div className="modal-count-buttons">
-                <button className="modal-button-less">-</button>
-                <div className="modal-count">0</div>
-                <button className="modal-button-more">+</button>
-              </div>
-            </div>
-          </li>{" "}
-          <li className="modal-content">
-            <div className="modal-image-div">
-              <Image src={tshirt} className="modal-image" />
-            </div>
-            <div className="modal-description">
-              <h2 className="modal-title">
-                koszulka koszulka koszulka koszulka koszulka
-              </h2>
-              <p className="modal-price">100$</p>
-            </div>
-            <div className="modal-count-buttons-wrapper">
-              <div className="modal-count-buttons">
-                <button className="modal-button-less">-</button>
-                <div className="modal-count">0</div>
-                <button className="modal-button-more">+</button>
-              </div>
-            </div>
-          </li>
-          <li className="modal-content">
-            <div className="modal-image-div">
-              <Image src={tshirt} className="modal-image" />
-            </div>
-            <div className="modal-description">
-              <h2 className="modal-title">
-                koszulka koszulka koszulka koszulka koszulka
-              </h2>
-              <p className="modal-price">100$</p>
-            </div>
-            <div className="modal-count-buttons-wrapper">
-              <div className="modal-count-buttons">
-                <button className="modal-button-less">-</button>
-                <div className="modal-count">0</div>
-                <button className="modal-button-more">+</button>
-              </div>
-            </div>
-          </li>
+          {cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              item={{
+                id: item.id,
+                title: item.title,
+                quantity: item.quantity,
+                total: item.totalPrice,
+                price: item.price,
+                image: item.image,
+              }}
+            />
+          ))}
           <div className="modal-button">
+            <p className="totalcartprice">
+              Total cart Price: ${cartPrice.toFixed(2)}
+            </p>
+            <button>buy</button>
             <button onClick={props.hidemodal}>Close</button>
           </div>
         </ul>
