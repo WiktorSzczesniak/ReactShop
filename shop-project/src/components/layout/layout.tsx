@@ -2,11 +2,17 @@ import CSSTransition from "react-transition-group/CSSTransition";
 import Header from "../navigation/header";
 import { useState, useEffect } from "react";
 import CartModalOverlay from "../cart/cartmodal";
+import { useDispatch } from "react-redux";
+import { startTokenExpirationCheck } from "@/store/Auth-slice";
 function Layout(props) {
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [visible, setVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    startTokenExpirationCheck(dispatch); // Call the function directly
+  }, [dispatch]);
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };

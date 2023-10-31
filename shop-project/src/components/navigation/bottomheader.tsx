@@ -2,7 +2,7 @@ import DetailsBottomheader from "./DetailsBottomheader";
 import { useState } from "react";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import headerSlice, {headerActions} from "@/store/header-slice";
+import {headerActions} from "@/store/header-slice";
 function Bottomheader() {
   const dispatch = useDispatch();
   const showdetails = useSelector((state) => state.header.detailsbottomIsShown);

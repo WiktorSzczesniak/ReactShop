@@ -1,38 +1,46 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { loginUser, authActions } from "@/store/Auth-slice";
 
+const Login = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-const LoginInterface = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add your login logic here, such as making an API call to authenticate the user
-    console.log("Login clicked");
-    console.log("Email:", email);
-    console.log("Password:", password);
+    const { email, password } = formData;
+
+    dispatch(loginUser(email, password)).then(() => {
+      if (isAuth) {
+        // router.push("/profile"); 
+      }
+    });
   };
 
   return (
     <div className="login-page">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={handleEmailChange}
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group">
@@ -40,8 +48,9 @@ const LoginInterface = () => {
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={handlePasswordChange}
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -49,11 +58,11 @@ const LoginInterface = () => {
           SIGN IN
         </button>
         <h3>
-           you dont have account yet? <Link href="/register">SIGN UP</Link>
+          Don't have an account yet? <Link href="/register">SIGN UP</Link>
         </h3>
       </form>
     </div>
   );
 };
 
-export default LoginInterface;
+export default Login;
